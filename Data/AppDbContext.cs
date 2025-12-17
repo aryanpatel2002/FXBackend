@@ -22,10 +22,9 @@ namespace HomePageBackend.Models
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("FoodOrderingSystem");
-            
             modelBuilder.Entity<Role>(entity =>
             {
+                entity.ToTable("Roles", "FoodOrderingSystem");
                 entity.HasKey(e => e.RoleID);
                 entity.Property(e => e.RoleName).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.Description).IsRequired().HasMaxLength(500);
@@ -33,6 +32,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<User>(entity =>
             {
+                entity.ToTable("Users", "FoodOrderingSystem");
                 entity.HasKey(e => e.UserId);
                 entity.Property(e => e.FullName).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Email).IsRequired().HasMaxLength(50);
@@ -48,6 +48,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<State>(entity =>
             {
+                entity.ToTable("States", "FoodOrderingSystem");
                 entity.HasKey(e => e.StateId);
                 entity.Property(e => e.StateName).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.IsActive).HasDefaultValue(true);
@@ -56,6 +57,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<City>(entity =>
             {
+                entity.ToTable("Cities", "FoodOrderingSystem");
                 entity.HasKey(e => e.CityId);
                 entity.Property(e => e.CityName).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.IsActive).HasDefaultValue(true);
@@ -64,6 +66,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<Restaurant>(entity =>
             {
+                entity.ToTable("Restaurants", "FoodOrderingSystem");
                 entity.HasKey(e => e.RestaurantId);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(150);
                 entity.Property(e => e.Description).HasMaxLength(300);
@@ -78,6 +81,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<Address>(entity =>
             {
+                entity.ToTable("Addresses", "FoodOrderingSystem");
                 entity.HasKey(e => e.AddressId);
                 entity.Property(e => e.AddressLine).HasMaxLength(300);
                 entity.Property(e => e.IsDefault).HasDefaultValue(false);
@@ -89,6 +93,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<MenuCategory>(entity =>
             {
+                entity.ToTable("MenuCategories", "FoodOrderingSystem");
                 entity.HasKey(e => e.CategoryId);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
                 entity.HasOne(e => e.Restaurant).WithMany(r => r.MenuCategories).HasForeignKey(e => e.RestaurantId);
@@ -96,6 +101,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<MenuItem>(entity =>
             {
+                entity.ToTable("MenuItems", "FoodOrderingSystem");
                 entity.HasKey(e => e.MenuItemId);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Description).HasMaxLength(300);
@@ -108,6 +114,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<Cart>(entity =>
             {
+                entity.ToTable("Carts", "FoodOrderingSystem");
                 entity.HasKey(e => e.CartId);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
                 entity.HasOne(e => e.User).WithMany(u => u.Carts).HasForeignKey(e => e.UserId);
@@ -115,6 +122,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<CartItem>(entity =>
             {
+                entity.ToTable("CartItems", "FoodOrderingSystem");
                 entity.HasKey(e => e.CartItemId);
                 entity.HasOne(e => e.Cart).WithMany(c => c.CartItems).HasForeignKey(e => e.CartId);
                 entity.HasOne(e => e.MenuItem).WithMany(m => m.CartItems).HasForeignKey(e => e.MenuItemId);
@@ -122,6 +130,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<Order>(entity =>
             {
+                entity.ToTable("Orders", "FoodOrderingSystem");
                 entity.HasKey(e => e.OrderId);
                 entity.Property(e => e.TotalAmount).HasColumnType("decimal(10,2)");
                 entity.Property(e => e.Status).IsRequired().HasMaxLength(20);
@@ -134,6 +143,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<OrderItem>(entity =>
             {
+                entity.ToTable("OrderItems", "FoodOrderingSystem");
                 entity.HasKey(e => e.OrderItemId);
                 entity.Property(e => e.Price).HasColumnType("decimal(10,2)");
                 
@@ -143,6 +153,7 @@ namespace HomePageBackend.Models
             
             modelBuilder.Entity<Review>(entity =>
             {
+                entity.ToTable("Reviews", "FoodOrderingSystem");
                 entity.HasKey(e => e.ReviewId);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
                 
