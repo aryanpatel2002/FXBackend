@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\HomePageBackend.csproj": {}
+    "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\HomePageBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\HomePageBackend.csproj": {
+    "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\HomePageBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
+        "projectUniqueName": "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
         "projectName": "HomePageBackend",
-        "projectPath": "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
+        "projectPath": "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
         "packagesPath": "C:\\Users\\Mayur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\obj\\",
+        "outputPath": "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

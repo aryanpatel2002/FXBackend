@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/RhL+PwnJQs=",
+  "dgSpecHash": "MA2iAgAlf34=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mayur\\Downloads\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
+  "projectFilePath": "D:\\Kanini-training\\Project\\Dashboard_module\\fxBackend_home\\FXBackend\\HomePageBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mayur\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Mayur\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

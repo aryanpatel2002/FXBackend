@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using HomePageBackend.Models;
+using HomePageBackend.Services;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,11 @@ if (string.IsNullOrWhiteSpace(connectionString))
 // --------------------------------------------------
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+// --------------------------------------------------
+// Services
+// --------------------------------------------------
+builder.Services.AddScoped<ICartService, CartService>();
 
 // --------------------------------------------------
 // CORS (Allow all)
