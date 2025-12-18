@@ -23,6 +23,10 @@ namespace HomePageBackend.Services
 
         public async Task<CartDto> AddToCartAsync(int userId, AddToCartDto dto)
         {
+            var menuItem = await _context.MenuItems.FindAsync(dto.MenuItemId);
+            if (menuItem == null)
+                throw new Exception("Menu item not found");
+
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                 .ThenInclude(ci => ci.MenuItem)
@@ -110,15 +114,17 @@ namespace HomePageBackend.Services
             if (cart == null)
                 return new CartDto();
 
-            var cartItems = cart.CartItems.Select(ci => new CartItemDto
-            {
-                CartItemId = ci.CartItemId,
-                MenuItemId = ci.MenuItemId,
-                MenuItemName = ci.MenuItem.Name,
-                Quantity = ci.Quantity,
-                Price = ci.MenuItem.Price,
-                Total = ci.Quantity * ci.MenuItem.Price
-            }).ToList();
+            var cartItems = cart.CartItems
+                .Where(ci => ci.MenuItem != null)
+                .Select(ci => new CartItemDto
+                {
+                    CartItemId = ci.CartItemId,
+                    MenuItemId = ci.MenuItemId,
+                    MenuItemName = ci.MenuItem?.Name ?? "Unknown",
+                    Quantity = ci.Quantity,
+                    Price = ci.MenuItem?.Price ?? 0,
+                    Total = ci.Quantity * (ci.MenuItem?.Price ?? 0)
+                }).ToList();
 
             return new CartDto
             {
