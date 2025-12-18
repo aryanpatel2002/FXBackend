@@ -65,9 +65,9 @@ var app = builder.Build();
 // --------------------------------------------------
 // Middleware ORDER (CRITICAL)
 // --------------------------------------------------
-app.UseRouting();
-
 app.UseCors("AllowAll");
+
+app.UseRouting();
 
 // Swagger MUST be after routing
 app.UseSwagger();
